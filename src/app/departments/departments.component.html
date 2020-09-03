@@ -1,0 +1,53 @@
+<!--<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+    <mat-list>
+      <mat-list-item *ngFor="let Course of Courses">
+        <img matListAvatar src={{Course.image}} alt={{Course.name}}>
+        <h3 matLine> {{Course.name}} {{Course.label}}</h3>
+        <p matLine class="demo-2"> {{Course.description}} </p>
+      </mat-list-item>
+    </mat-list> 
+</div>-->
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+
+  <div fxFlex>
+    <div>
+      <h3>DEPARTMENTS</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <mat-grid-list cols="2" rowHeight="250px">
+      <mat-grid-tile *ngFor="let Course of courses">
+        <img height="250px" src={{Course.image}} alt={{Course.name}}>
+        <mat-grid-tile-footer>
+          <h1>{{Course.name | uppercase}}</h1>
+        </mat-grid-tile-footer>
+      </mat-grid-tile>
+    </mat-grid-list>
+
+  </div>
+  <div fxFlex *ngIf="selectedCourse">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <h3>{{selectedCourse.name | uppercase}}</h3>
+        </mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src={{selectedCourse.image}} alt={{selectedCourse.name}}>
+      <mat-card-content>
+        <p>{{selectedCourse.description}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>ENROLL</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+  
+
+</div>
